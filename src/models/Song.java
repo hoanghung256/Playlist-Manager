@@ -33,5 +33,7 @@ public class Song {
         this.songName = songName;
     }
     
-    
+    public String toFileString() {
+        return Id + "," + songName;
+    }
 }
