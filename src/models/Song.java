@@ -32,8 +32,13 @@ public class Song {
     public void setSongName(String songName) {
         this.songName = songName;
     }
-    
+
     public String toFileString() {
         return Id + "," + songName;
+    }
+
+    @Override
+    public String toString() {
+        return "Song: {ID: " + Id + ", Name: " + songName + "}";
     }
 }

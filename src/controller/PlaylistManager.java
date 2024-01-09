@@ -17,7 +17,7 @@ import view.Menu;
 public class PlaylistManager extends Menu<String> {
     private static SongManager songManager = new SongManager();
     private static final String menuTitle = "PLAYLIST MENU";
-    private static final String[] menuOptions = {"Create Fruit", "View order", "Shopping", "Display all fruits", "Exit"};
+    private static final String[] menuOptions = {"Display all song", "Add new song into playlist", "Remove song from playlist", "Shuffle playlist", "Skip song", "Exit"};
 
     public PlaylistManager() {
         super(menuTitle, menuOptions);

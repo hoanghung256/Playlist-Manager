@@ -4,6 +4,7 @@
  */
 package models;
 
+import data_structure.MyLinkedList;
 import database.FileManager;
 
 /**
@@ -11,17 +12,17 @@ import database.FileManager;
  * @author hoang
  */
 public class SongManager {
-    LinkedList<Song> songs;
+    MyLinkedList<Song> songs;
     FileManager fileManager;
 
     public SongManager() {
-        songs = new LinkedList<>();
+        songs = new MyLinkedList<>();
         fileManager = new FileManager();
     }
-    
+
     public void displayAllSong() {
-        LinkedList<Song> songs = fileManager.readSongsFromFile();
-        
-//        print here
+        MyLinkedList<Song> songs = fileManager.readSongsFromFile();
+
+        songs.showList();
     }
 }
