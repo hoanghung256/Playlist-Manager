@@ -26,6 +26,14 @@ public class SongManager {
     public void displayAllSong() {
         songs.showList();
     }
+    
+    public void addNewSong(String name) {
+        songs.addLast(new Song(songs.size() + 1, name));
+    }
+    
+    public void removeSong(String name) {
+//        songs.remove(name);
+    }
 
     public Song get(int x){
         for (Node<Song> traverseNode = songs.getFirst(); traverseNode != null; traverseNode = traverseNode.next) {
