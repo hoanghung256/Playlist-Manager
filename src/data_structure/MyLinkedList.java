@@ -28,9 +28,9 @@ public class MyLinkedList<T> {
 
     public void addLast(T x) {
         if (this.isEmpty()) {
-            this.head = this.tail = new Node(x, (Node)null);
+            this.head = this.tail = new Node(x, (Node) null);
         } else {
-            Node newTail = new Node(x, (Node)null);
+            Node newTail = new Node(x, (Node) null);
             this.tail.next = newTail;
             this.tail = newTail;
         }
@@ -42,7 +42,7 @@ public class MyLinkedList<T> {
             System.out.println("Is empty!");
         } else {
             Node traverse;
-            for(traverse = this.head; traverse.next != this.tail; traverse = traverse.next) {
+            for (traverse = this.head; traverse.next != this.tail; traverse = traverse.next) {
             }
 
             this.tail = traverse;
@@ -62,8 +62,8 @@ public class MyLinkedList<T> {
     }
 
     public void showList() {
-        for(Node<T> traverse = this.head; traverse != null; traverse = traverse.next) {
-            System.out.print(String.valueOf(traverse.value) + " ");
+        for (Node<T> traverse = this.head; traverse != null; traverse = traverse.next) {
+            System.out.println(traverse.value.toString());
         }
     }
 }
