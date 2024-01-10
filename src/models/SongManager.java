@@ -50,7 +50,7 @@ public class SongManager {
         arr[j] = tmp;
     }
 
-    public void shuffle(MyLinkedList<Song> songs){
+    public void shuffle(){
         Song[] songArr = toArray(songs);
         Random rnd = new Random();
         for(int i = 0; i < songArr.length; i++){

@@ -15,12 +15,13 @@ import view.Menu;
 public class PlaylistManager extends Menu<String> {
     private static SongManager songManager = new SongManager();
     private static final String menuTitle = "PLAYLIST MENU";
-    private static final String[] menuOptions = {"Display all song", "Add new song into playlist", "Remove song from playlist", "Shuffle playlist", "Skip song", "Exit"};
+    private static final String[] menuOptions = { "Display all song", "Add new song into playlist",
+            "Remove song from playlist", "Shuffle playlist", "Skip song", "Exit" };
 
     public PlaylistManager() {
         super(menuTitle, menuOptions);
     }
-    
+
     @Override
     public void execute(int n) {
         switch (n) {
@@ -33,54 +34,48 @@ public class PlaylistManager extends Menu<String> {
             case 3:
                 removeSong();
                 break;
-            case 4: 
+            case 4:
                 shufflePlaylist();
                 break;
-            case 5: 
+            case 5:
                 skipToNextSong();
-                break; 
-            case 6: 
-                skipToPreviousSong();
-                break;    
-            case 7:
+                break;
+            case 6:
                 exit();
                 break;
+            // case 7:
+            // break;
         }
     }
-    
+
     private static void displayAllSong() {
         songManager.displayAllSong();
     }
-    
+
     private static void addNewSong() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter song name: ");
         String name = sc.nextLine();
         songManager.addNewSong(name);
     }
-    
+
     private static void removeSong() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter song name: ");
         String name = sc.nextLine();
         songManager.removeSong(name);
     }
-    
+
     private static void shufflePlaylist() {
-        
+        songManager.shuffle();
     }
-    
+
     private static void skipToNextSong() {
-        
+
     }
-    
-    private static void skipToPreviousSong() {
-        
-    }
-    
-    
+
     private static void exit() {
-//        songManeger.writeFruitsIntoFile();
+        // songManeger.writeFruitsIntoFile();
         System.out.println("Goodbye");
         System.exit(0);
     }
