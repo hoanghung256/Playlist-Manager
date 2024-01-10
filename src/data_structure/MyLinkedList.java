@@ -23,7 +23,6 @@ public class MyLinkedList<T> {
         } else {
             this.head = newHead;
         }
-
         ++this.size;
     }
 
@@ -35,7 +34,6 @@ public class MyLinkedList<T> {
             this.tail.next = newTail;
             this.tail = newTail;
         }
-
         ++this.size;
     }
 

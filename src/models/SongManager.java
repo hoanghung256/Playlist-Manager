@@ -6,6 +6,7 @@ package models;
 
 import data_structure.MyLinkedList;
 import database.FileManager;
+import data_structure.Node;
 
 /**
  *
@@ -23,12 +24,18 @@ public class SongManager {
     public void displayAllSong() {
         songs.showList();
     }
-    
+
     public void addNewSong(String name) {
         songs.addLast(new Song(songs.size() + 1, name));
     }
-    
+
     public void removeSong(String name) {
 //        songs.remove(name);
+    }
+
+    public Node<Song> get(int id){
+        for(Node<Song> traverse = this.head; traverse != null; traverse = traverse.next){
+            if (traverse.get)
+        }
     }
 }
