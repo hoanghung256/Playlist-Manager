@@ -1,5 +1,7 @@
 package data_structure;
 
+import models.Song;
+
 public class MyLinkedList<T> {
     Node head = null;
     Node tail = null;
@@ -61,14 +63,41 @@ public class MyLinkedList<T> {
         --this.size;
     }
 
+    // Remove by name
+    public boolean remove(String x) {
+        Node current = head;
+
+        // Handle case that find song is head
+        Song s = (Song) current.getValue();
+        if (head != null && s.getSongName().equalsIgnoreCase(x)) {
+            head = head.next;
+            return true;
+        }
+
+        while (current.next != null) {
+            s = (Song) current.next.getValue();
+
+            if (s.getSongName().equalsIgnoreCase(x)) {
+                current.next = current.next.next;
+                return true;
+            } else {
+                current = current.next;
+            }
+        }
+
+        return false;
+    }
+
     public void showList() {
         for (Node<T> traverse = this.head; traverse != null; traverse = traverse.next) {
             System.out.println(traverse.value.toString());
         }
     }
-    public Node<T> getFirst(){
+
+    public Node<T> getFirst() {
         return this.head;
     }
+
     public Node<T> getlast() {
         return this.tail;
     }

@@ -20,5 +20,4 @@ public class App {
         PlaylistManager manager = new PlaylistManager();
         manager.run();
     }
-    
 }

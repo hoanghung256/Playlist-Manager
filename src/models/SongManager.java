@@ -24,20 +24,21 @@ public class SongManager {
     }
 
     public void displayAllSong() {
+        System.out.println("| ID |     Name");
         songs.showList();
     }
-    
+
     public void addNewSong(String name) {
         songs.addLast(new Song(songs.size() + 1, name));
     }
-    
+
     public void removeSong(String name) {
-//        songs.remove(name);
+        songs.remove(name);
     }
 
-    public Song get(int x){
+    public Song get(int x) {
         for (Node<Song> traverseNode = songs.getFirst(); traverseNode != null; traverseNode = traverseNode.next) {
-            if(traverseNode.getValue().getId() == x){
+            if (traverseNode.getValue().getId() == x) {
                 return traverseNode.getValue();
             }
         }
@@ -50,19 +51,20 @@ public class SongManager {
         arr[j] = tmp;
     }
 
-    public void shuffle(){
+    public void shuffle() {
         Song[] songArr = toArray(songs);
         Random rnd = new Random();
-        for(int i = 0; i < songArr.length; i++){
+        for (int i = 0; i < songArr.length; i++) {
             int randInt = i + rnd.nextInt(songs.size() + 1 - i);
             swap(songArr, i, randInt);
         }
     }
-    public Song[] toArray(MyLinkedList<Song> list){
+
+    public Song[] toArray(MyLinkedList<Song> list) {
         Song[] array = new Song[list.size()];
         Node traverse = list.getFirst();
-        for(int i = 0; i < list.size(); i++){
-            array[i] = (Song)traverse.getValue();
+        for (int i = 0; i < list.size(); i++) {
+            array[i] = (Song) traverse.getValue();
             traverse = traverse.next;
         }
         return array;
