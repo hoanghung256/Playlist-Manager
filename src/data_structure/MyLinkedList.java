@@ -66,4 +66,11 @@ public class MyLinkedList<T> {
             System.out.println(traverse.value.toString());
         }
     }
+    public Node<T> getFirst(){
+        return this.head;
+    }
+    public Node<T> getlast() {
+        return this.tail;
+    }
+
 }
