@@ -4,9 +4,7 @@
  */
 package controller;
 
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.function.Predicate;
 import models.SongManager;
 import view.Menu;
 
@@ -55,11 +53,17 @@ public class PlaylistManager extends Menu<String> {
     }
     
     private static void addNewSong() {
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter song name: ");
+        String name = sc.nextLine();
+        songManager.addNewSong(name);
     }
     
     private static void removeSong() {
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter song name: ");
+        String name = sc.nextLine();
+        songManager.removeSong(name);
     }
     
     private static void shufflePlaylist() {

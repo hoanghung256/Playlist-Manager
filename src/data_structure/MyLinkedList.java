@@ -67,6 +67,5 @@ public class MyLinkedList<T> {
         for (Node<T> traverse = this.head; traverse != null; traverse = traverse.next) {
             System.out.println(traverse.value.toString());
         }
-
     }
 }

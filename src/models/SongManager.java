@@ -16,13 +16,19 @@ public class SongManager {
     FileManager fileManager;
 
     public SongManager() {
-        songs = new MyLinkedList<>();
         fileManager = new FileManager();
+        songs = fileManager.readSongsFromFile();
     }
 
     public void displayAllSong() {
-        MyLinkedList<Song> songs = fileManager.readSongsFromFile();
-
         songs.showList();
+    }
+    
+    public void addNewSong(String name) {
+        songs.addLast(new Song(songs.size() + 1, name));
+    }
+    
+    public void removeSong(String name) {
+//        songs.remove(name);
     }
 }
