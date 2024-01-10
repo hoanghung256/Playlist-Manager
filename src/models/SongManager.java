@@ -4,10 +4,16 @@
  */
 package models;
 
+import data_structure.Node;
+
 /**
  *
  * @author hoang
  */
 public class SongManager {
-    
+    public Node<Song get(int id){
+        for(Node<Song> traverse = this.head; traverse != null; traverse = traverse.next){
+            if (traverse.get)
+        }
+    }
 }
