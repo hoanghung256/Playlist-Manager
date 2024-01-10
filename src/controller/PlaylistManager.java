@@ -75,7 +75,6 @@ public class PlaylistManager extends Menu<String> {
     }
 
     private static void exit() {
-        // songManeger.writeFruitsIntoFile();
         System.out.println("Goodbye");
         System.exit(0);
     }

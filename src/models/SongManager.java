@@ -53,10 +53,18 @@ public class SongManager {
     public void shuffle(){
         Song[] songArr = toArray(songs);
         Random rnd = new Random();
+        int randInt = 0;
+        //shuffle in array
         for(int i = 0; i < songArr.length; i++){
-            int randInt = i + rnd.nextInt(songs.size() + 1 - i);
+            randInt = i + rnd.nextInt(songArr.length - i);
             swap(songArr, i, randInt);
         }
+        MyLinkedList<Song> suffledList = new MyLinkedList<>();
+        for(int i = 0; i < songArr.length; i++){
+            songArr[i].setId(i);
+            suffledList.addLast(songArr[i]);
+        }
+        songs = suffledList;
     }
     public Song[] toArray(MyLinkedList<Song> list){
         Song[] array = new Song[list.size()];
