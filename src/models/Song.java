@@ -40,6 +40,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song: {ID: " + Id + ", Name: " + songName + "}";
+        return "| " + Id + "  |  " + songName;
     }
 }

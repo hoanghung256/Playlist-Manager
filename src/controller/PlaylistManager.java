@@ -15,8 +15,9 @@ import view.Menu;
 public class PlaylistManager extends Menu<String> {
     private static SongManager songManager = new SongManager();
     private static final String menuTitle = "PLAYLIST MENU";
-    private static final String[] menuOptions = { "Display all song", "Add new song into playlist",
-            "Remove song from playlist", "Shuffle playlist", "Skip song", "Exit" };
+    private static final String[] menuOptions = { "Display all song", "Play", "Skip to next song",
+            "Skip to previous song", "Shuffle playlist", "Add new song into playlist", "Remove song from playlist",
+            "Exit" };
 
     public PlaylistManager() {
         super(menuTitle, menuOptions);
@@ -26,30 +27,32 @@ public class PlaylistManager extends Menu<String> {
     public void execute(int n) {
         switch (n) {
             case 1:
-                displayAllSong();
+                songManager.displayAllSong();
                 break;
             case 2:
-                addNewSong();
+                songManager.play();
                 break;
             case 3:
-                removeSong();
+                songManager.skipToNext();
                 break;
             case 4:
-                shufflePlaylist();
+                songManager.skipToPrevious();
                 break;
             case 5:
-                skipToNextSong();
+                songManager.shuffle();
                 break;
             case 6:
+                addNewSong();
+                break;
+            case 7:
+                removeSong();
+                break;
+            case 8:
                 exit();
                 break;
             // case 7:
             // break;
         }
-    }
-
-    private static void displayAllSong() {
-        songManager.displayAllSong();
     }
 
     private static void addNewSong() {
@@ -64,14 +67,6 @@ public class PlaylistManager extends Menu<String> {
         System.out.print("Enter song name: ");
         String name = sc.nextLine();
         songManager.removeSong(name);
-    }
-
-    private static void shufflePlaylist() {
-        songManager.shuffle();
-    }
-
-    private static void skipToNextSong() {
-
     }
 
     private static void exit() {
