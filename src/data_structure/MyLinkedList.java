@@ -72,5 +72,4 @@ public class MyLinkedList<T> {
     public Node<T> getlast() {
         return this.tail;
     }
-
 }

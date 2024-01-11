@@ -61,7 +61,7 @@ public class SongManager {
         }
         MyLinkedList<Song> suffledList = new MyLinkedList<>();
         for(int i = 0; i < songArr.length; i++){
-            songArr[i].setId(i);
+            songArr[i].setId(i +  1);
             suffledList.addLast(songArr[i]);
         }
         songs = suffledList;
