@@ -88,6 +88,32 @@ public class MyLinkedList<T> {
         return false;
     }
 
+    public Node<T> getNextSong(Node<T> current) {
+        if (current != null && current.next != null) {
+            return current.next;
+        } 
+        // else {
+            // System.out.println("No song available");
+            return null;
+        // }
+    }
+
+    public Node<T> getPreviousSong(Node<T> current) {
+        if (current != null && current != head) {
+            Node<T> previous = head;
+
+            while (previous.next != null && previous.next != current) {
+                previous = previous.next;
+            }
+            return previous;
+        } 
+        // else {
+        //     System.out.println("No song available");
+        // }
+        return null;
+
+    }
+
     public void showList() {
         for (Node<T> traverse = this.head; traverse != null; traverse = traverse.next) {
             System.out.println(traverse.value.toString());

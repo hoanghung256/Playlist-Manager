@@ -7,7 +7,6 @@ package models;
 import data_structure.MyLinkedList;
 import data_structure.Node;
 import database.FileManager;
-import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -17,6 +16,7 @@ import java.util.Random;
 public class SongManager {
     MyLinkedList<Song> songs;
     FileManager fileManager;
+    Node<Song> currentSong;
 
     public SongManager() {
         fileManager = new FileManager();
@@ -28,12 +28,37 @@ public class SongManager {
         songs.showList();
     }
 
+    public void play() {
+        currentSong = songs.getFirst();
+        System.out.println("Playing " + currentSong.getValue().getSongName() + "...");
+    }
+
     public void addNewSong(String name) {
         songs.addLast(new Song(songs.size() + 1, name));
     }
 
     public void removeSong(String name) {
         songs.remove(name);
+    }
+
+    public void skipToNext() {
+        try {
+            currentSong = songs.getNextSong(currentSong);
+            Song song = currentSong.getValue();
+            System.out.println("Playing " + song.getSongName() + "...");
+        } catch (NullPointerException e) {
+            System.out.println("No song available!");
+        }
+    }
+
+    public void skipToPrevious() {
+        try {
+            currentSong = songs.getPreviousSong(currentSong);
+            Song song = currentSong.getValue();
+            System.out.println("Playing " + song.getSongName() + "...");
+        } catch (NullPointerException e) {
+            System.out.println("No song available!");
+        }
     }
 
     public Song get(int x) {
@@ -54,10 +79,18 @@ public class SongManager {
     public void shuffle() {
         Song[] songArr = toArray(songs);
         Random rnd = new Random();
+        int randInt = 0;
+        // shuffle in array
         for (int i = 0; i < songArr.length; i++) {
-            int randInt = i + rnd.nextInt(songs.size() + 1 - i);
+            randInt = i + rnd.nextInt(songArr.length - i);
             swap(songArr, i, randInt);
         }
+        MyLinkedList<Song> suffledList = new MyLinkedList<>();
+        for (int i = 0; i < songArr.length; i++) {
+            songArr[i].setId(i + 1);
+            suffledList.addLast(songArr[i]);
+        }
+        songs = suffledList;
     }
 
     public Song[] toArray(MyLinkedList<Song> list) {
