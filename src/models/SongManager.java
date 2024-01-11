@@ -25,8 +25,6 @@ public class SongManager {
     }
 
     public void displayAllSong() {
-        MyLinkedList<Song> songs = fileManager.readSongsFromFile();
-
         songs.showList();
     }
 
